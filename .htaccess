@@ -1,0 +1,28 @@
+Options -Indexes
+RewriteEngine On
+
+# 1. KEAMANAN: Blokir akses ke database.json
+<Files "database.json">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# 2. PANDUAN JALAN UNTUK ASET STATIS (CSS, JS, IMAGES)
+# Mengarahkan file agar otomatis mencari ke dalam folder /public/
+RewriteRule ^css/(.*)$ public/css/$1 [L]
+RewriteRule ^js/(.*)$ public/js/$1 [L]
+RewriteRule ^images/(.*)$ public/images/$1 [L]
+
+# 3. ROUTING API KE PHP
+RewriteRule ^api/(.*)$ api.php?route=$1 [QSA,L]
+
+# 4. ROUTING HALAMAN HTML
+RewriteRule ^games/?$ views/games.html [L]
+RewriteRule ^how-to-buy/?$ views/how-to-buy.html [L]
+
+# 5. ROUTING HALAMAN ADMIN
+RewriteRule ^mkr-admin/?$ admin/login.html [L]
+RewriteRule ^mkr-admin/dashboard/?$ admin/dashboard.html [L]
+
+# 6. HALAMAN UTAMA (HOME)
+RewriteRule ^$ views/home.html [L]

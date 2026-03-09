@@ -16,10 +16,12 @@ async function loadAdminGames() {
         container.innerHTML = '<p style="color: #888;">Belum ada game.</p>'; return;
     }
 
-    container.innerHTML = data.games.map(game => `
+    container.innerHTML = data.games.map((game, index) => `
         <div class="game-list-item">
             <div><strong style="color: var(--text-light);">${game.name}</strong></div>
-            <div class="action-btns">
+            <div class="action-btns" style="display: flex; gap: 5px; align-items: center;">
+                <button class="btn" style="padding: 5px 10px;" onclick="moveItem('games', ${game.id}, 'up')" ${index === 0 ? 'disabled style="opacity:0.3; cursor:not-allowed;"' : ''}>⬆️</button>
+                <button class="btn" style="padding: 5px 10px;" onclick="moveItem('games', ${game.id}, 'down')" ${index === data.games.length - 1 ? 'disabled style="opacity:0.3; cursor:not-allowed;"' : ''}>⬇️</button>
                 <button class="btn" onclick="openEditModal(${game.id})">Edit</button>
                 <button class="btn btn-delete" onclick="deleteGame(${game.id})">Hapus</button>
             </div>
@@ -88,7 +90,7 @@ async function loadAdminReviews() {
         container.innerHTML = '<p style="color: #888;">Belum ada review.</p>'; return;
     }
 
-    container.innerHTML = data.reviews.map(review => `
+    container.innerHTML = data.reviews.map((review, index) => `
         <div class="game-list-item" style="border-color: rgba(241, 196, 15, 0.2)">
             <div style="display:flex; align-items:center; gap: 10px;">
                 <img src="${review.image || 'https://i.pravatar.cc/150'}" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
@@ -97,7 +99,9 @@ async function loadAdminReviews() {
                     <div style="color: #f1c40f; font-size: 0.8rem;">${generateStarHtml(review.stars)}</div>
                 </div>
             </div>
-            <div class="action-btns">
+            <div class="action-btns" style="display: flex; gap: 5px; align-items: center;">
+                <button class="btn" style="padding: 5px 10px; border-color: #f1c40f;" onclick="moveItem('reviews', ${review.id}, 'up')" ${index === 0 ? 'disabled style="opacity:0.3; cursor:not-allowed;"' : ''}>⬆️</button>
+                <button class="btn" style="padding: 5px 10px; border-color: #f1c40f;" onclick="moveItem('reviews', ${review.id}, 'down')" ${index === data.reviews.length - 1 ? 'disabled style="opacity:0.3; cursor:not-allowed;"' : ''}>⬇️</button>
                 <button class="btn" style="border-color: #f1c40f; color: #f1c40f;" onclick="openEditReviewModal(${review.id})">Edit</button>
                 <button class="btn btn-delete" onclick="deleteReview(${review.id})">Hapus</button>
             </div>
@@ -151,3 +155,16 @@ async function saveEditReview() {
 function closeEditReviewModal() { document.getElementById('edit-review-modal').style.display = 'none'; }
 
 function logout() { document.cookie = "auth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; window.location.href = '/mkr-admin'; }
+
+// --- FUNGSI PINDAH URUTAN (REORDER) ---
+async function moveItem(type, id, direction) {
+    await fetch('/api/reorder', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type, id, direction })
+    });
+    
+    // Refresh list setelah urutan ditukar
+    if (type === 'games') loadAdminGames();
+    if (type === 'reviews') loadAdminReviews();
+}

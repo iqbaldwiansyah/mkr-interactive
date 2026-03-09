@@ -1,73 +1,97 @@
 {
-  "games": [
-    {
-      "id": 1,
-      "name": "Mario Interactive",
-      "desc": "Biarkan penonton TikTok-mu mengontrol dan membuat chaos di game Mario favoritmu secara real-time!",
-      "thumb": "https://www.chromethemer.com/wallpapers/chromebook-wallpapers/images/960/super-mario-bros-chromebook-wallpaper.jpg",
-      "link": "https://discord.com/invite/TmYfuYwHCu"
-    },
-    {
-      "id": 2,
-      "name": "PVZ Livestream Mod",
-      "desc": "Penonton bisa menanam zombie atau tanaman menggunakan gift dan komentar.",
-      "thumb": "https://via.placeholder.com/300x200/1a1a2e/ff007f?text=PVZ+TikTok",
-      "link": "https://discord.com/invite/TmYfuYwHCu"
-    },
-    {
-      "id": 1773076115105,
-      "name": "NFS Most Wanted",
-      "desc": "Buat Balapanmu semakin kacau.",
-      "thumb": "https://media.discordapp.net/attachments/1453560027452543109/1471607616907120782/Interactive_Most_Wanted.png?ex=69afd9a5&is=69ae8825&hm=a37b623f86764cc710cca68061c82d7e944b36bcb059d1bfa3bbc3bd3c03b7dc&=&format=webp&quality=lossless&width=981&height=552",
-      "link": "https://discord.com/invite/TmYfuYwHCu"
-    }
-  ],
-  "reviews": [
-    {
-      "id": 1773093683198,
-      "name": "Fadeli Surya",
-      "username": "fadelisurya",
-      "text": "Mantap Kali!!",
-      "image": "https://ui-avatars.com/api/?name=Fadeli Surya&background=random",
-      "stars": 5
-    },
-    {
-      "id": 1,
-      "name": "RizkyGaming",
-      "username": "@rizky_live",
-      "text": "Script-nya gampang di-setup! Live TikTok saya langsung ramai gift, parah chaos-nya!",
-      "image": "https://i.pravatar.cc/150?u=rizky",
-      "stars": 5
-    },
-    {
-      "id": 2,
-      "name": "Siska_VTuber",
-      "username": "@siska_kawaii",
-      "text": "Penonton suka banget interaksi lewat NFS Most Wanted. Recomended buat streamer!",
-      "image": "https://i.pravatar.cc/150?u=siska",
-      "stars": 4
-    }
-  ],
-  "poweredBy": [
-    {
-      "id": 1,
-      "name": "Node.js",
-      "logo": "https://nodejs.org/static/images/logo.svg",
-      "link": "https://nodejs.org/"
-    }
-  ],
-  "supportedBy": [
-    {
-      "id": 1,
-      "name": "Bakka Sub",
-      "logo": "/images/FANSUB_NO.1.png",
-      "link": "https://www.bakkasub.my.id/"
-    },
-    {
-      "id": 2,
-      "name": "ID Cosrent",
-      "logo": "/images/id_cosrent.png",
-      "link": "https://www.instagram.com/id_cosrent"
-    }
-  ]
+    "games": [
+        {
+            "name": "Mario Interactive",
+            "desc": "Biarkan penonton TikTok-mu mengontrol dan membuat chaos di game Mario favoritmu secara real-time!",
+            "thumb": "https:\/\/www.chromethemer.com\/wallpapers\/chromebook-wallpapers\/images\/960\/super-mario-bros-chromebook-wallpaper.jpg",
+            "link": "https:\/\/discord.com\/invite\/TmYfuYwHCu",
+            "id": 1773097587012
+        },
+        {
+            "name": "Need For Speed Most Wanted",
+            "desc": "Latih skill Balapan kamu dengan kekacauan yang ditimbulkan oleh Viewermu.",
+            "thumb": "https:\/\/media.discordapp.net\/attachments\/1453560027452543109\/1471607616907120782\/Interactive_Most_Wanted.png?ex=69afd9a5&is=69ae8825&hm=a37b623f86764cc710cca68061c82d7e944b36bcb059d1bfa3bbc3bd3c03b7dc&=&format=webp&quality=lossless&width=981&height=552",
+            "link": "https:\/\/discord.com\/invite\/TmYfuYwHCu",
+            "id": 1773097549575
+        },
+        {
+            "id": 1773076115105,
+            "name": "Crash Team Racing PS1",
+            "desc": "Balapan penuh nostalgia dan kekacauan",
+            "thumb": "https:\/\/media.discordapp.net\/attachments\/1453560027452543109\/1471607327814582332\/Interactive_CTR.png?ex=69afd960&is=69ae87e0&hm=0ced6bf50e1df7a0d4ace1cefce9fd6119c00efa7d5634a6800942ec83b1c95a&=&format=webp&quality=lossless&width=981&height=552",
+            "link": "https:\/\/discord.com\/invite\/TmYfuYwHCu"
+        }
+    ],
+    "reviews": [
+        {
+            "id": 1773098086003,
+            "name": "Fadeli Surya",
+            "username": "@fadelisurya",
+            "text": "Mantap Kaleee",
+            "image": "https:\/\/p16-sign-va.tiktokcdn.com\/tos-maliva-avt-0068\/c621aeb3d56de02b55c100fe3060fabe~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=e7cf0411&x-expires=1773270000&x-signature=Pv%2BSbtIWnRpZo4dNPtYFqMvjQbU%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my2",
+            "stars": 5
+        },
+        {
+            "id": 1773098059348,
+            "name": "Znine",
+            "username": "@ishowznine",
+            "text": "Selalu mendengarkan masukan Customer",
+            "image": "https:\/\/p16-sign-sg.tiktokcdn.com\/tos-alisg-avt-0068\/9faef0fe4205f97265995e9a83b2ab67~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=5697b599&x-expires=1773270000&x-signature=JPPJZ2qlVgV3nvO0Eq0pU%2BtASYI%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my2",
+            "stars": 5
+        },
+        {
+            "id": 1773097985227,
+            "name": "Bang Abdul",
+            "username": "@bangabdulgaming",
+            "text": "Dijamin tidak bosan , Admin super ramah",
+            "image": "https:\/\/p16-sign-sg.tiktokcdn.com\/tos-alisg-avt-0068\/86623314f537f32c6ffad14722933aa1~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=5f6e0a9f&x-expires=1773270000&x-signature=nvMnyxHeLnvAM425gSu9BLSVO%2Bg%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my",
+            "stars": 5
+        },
+        {
+            "id": 1773097919029,
+            "name": "Mazbre",
+            "username": "@gemjeeha",
+            "text": "Nyoba sekali Auto Ketagihan",
+            "image": "https:\/\/p16-sign-sg.tiktokcdn.com\/tos-alisg-avt-0068\/5724ff306a5b03624a2682754fcdce82~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=1da2396b&x-expires=1773270000&x-signature=hBJMkCD06K5ZQyotLxrnZUngXMU%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my2",
+            "stars": 5
+        },
+        {
+            "id": 1773097871210,
+            "name": "Seno",
+            "username": "@senotudraq",
+            "text": "Game yang always di Update dan tidak membosankan",
+            "image": "https:\/\/p16-sign-sg.tiktokcdn.com\/tos-alisg-avt-0068\/c5c0ed83eb28503e5ed9fda821a38599~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=917af9de&x-expires=1773270000&x-signature=Te15YBiyprZ%2FJO4a%2B%2FsC4y9E%2BUk%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my2",
+            "stars": 5
+        },
+        {
+            "id": 1773097798385,
+            "name": "Kripsing",
+            "username": "@kripalwaysing",
+            "text": "Mario is best game for Me.",
+            "image": "https:\/\/p16-sign-sg.tiktokcdn.com\/tos-alisg-avt-0068\/8aec291bb49379525de9f6fb3652dd92~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=11738dd2&x-expires=1773270000&x-signature=LvTzNWf8g%2ByfRvGHUFR%2BKhhOunE%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my2",
+            "stars": 5
+        }
+    ],
+    "poweredBy": [
+        {
+            "id": 1,
+            "name": "Node.js",
+            "logo": "https:\/\/nodejs.org\/static\/images\/logo.svg",
+            "link": "https:\/\/nodejs.org\/"
+        }
+    ],
+    "supportedBy": [
+        {
+            "id": 1,
+            "name": "Bakka Sub",
+            "logo": "\/images\/FANSUB_NO.1.png",
+            "link": "https:\/\/www.bakkasub.my.id\/"
+        },
+        {
+            "id": 2,
+            "name": "ID Cosrent",
+            "logo": "\/images\/id_cosrent.png",
+            "link": "https:\/\/www.instagram.com\/id_cosrent"
+        }
+    ]
 }
