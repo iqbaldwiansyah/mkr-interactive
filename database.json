@@ -61,7 +61,13 @@
       "id": 1,
       "name": "Bakka Sub",
       "logo": "/images/FANSUB_NO.1.png",
-      "link": "https://nodejs.org/"
+      "link": "https://www.bakkasub.my.id/"
+    },
+    {
+      "id": 2,
+      "name": "ID Cosrent",
+      "logo": "/images/id_cosrent.png",
+      "link": "https://www.instagram.com/id_cosrent"
     }
   ]
 }
