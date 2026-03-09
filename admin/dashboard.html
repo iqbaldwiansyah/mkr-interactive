@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - MKR</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .admin-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 30px; margin-top: 30px; }
+        .game-list-item { display: flex; justify-content: space-between; align-items: center; background: rgba(31, 40, 51, 0.5); padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid rgba(102, 252, 241, 0.2); }
+        .action-btns button { padding: 5px 15px; font-size: 0.9rem; margin-left: 10px; }
+        .btn-delete { border-color: #ff007f; color: #ff007f; }
+        .btn-delete:hover { background: #ff007f; color: white; box-shadow: 0 0 15px #ff007f; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(11, 12, 16, 0.9); z-index: 2000; padding-top: 50px; overflow-y: auto; }
+        .modal-content { max-width: 500px; margin: auto; background: var(--surface-color); padding: 30px; border-radius: 10px; border: 1px solid var(--neon-cyan); margin-bottom: 50px;}
+        @media (max-width: 768px) { .admin-layout { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo"><span style="color: var(--neon-cyan); font-weight: bold; font-size: 1.5rem;">MKR ADMIN</span></div>
+        <div class="nav-links"><a href="/" target="_blank">LIHAT WEBSITE</a> <a href="#" onclick="logout()" style="color: #ff007f;">LOGOUT</a></div>
+    </nav>
+
+    <div class="container" style="padding-top: 100px;">
+        <h1 style="color: var(--neon-cyan);">Dashboard Manajemen</h1>
+        
+        <div class="admin-layout">
+            <div class="forms-column">
+                <div class="card" style="margin-bottom: 25px;">
+                    <h3 style="color: var(--neon-cyan); margin-bottom: 15px;">➕ Tambah Game Baru</h3>
+                    <input type="text" id="g-name" placeholder="Nama Game">
+                    <textarea id="g-desc" placeholder="Deskripsi Singkat" rows="3"></textarea>
+                    <input type="text" id="g-thumb" placeholder="URL Gambar Thumbnail">
+                    <input type="text" id="g-link" placeholder="Link Discord / Pembelian">
+                    <button class="btn" style="width: 100%;" onclick="addGame()">Simpan Game Baru</button>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: #f1c40f; margin-bottom: 15px;">⭐ Tambah Review Pelanggan</h3>
+                    <input type="text" id="r-name" placeholder="Nama Customer">
+                    <input type="text" id="r-username" placeholder="Username TikTok (contoh: @mkr_gaming)">
+                    <textarea id="r-text" placeholder="Isi Review" rows="3"></textarea>
+                    <input type="text" id="r-image" placeholder="URL Foto Profil (Opsional)">
+                    <label style="color: var(--text-main); display:block; margin-bottom: 5px;">Skor Bintang (1-5):</label>
+                    <select id="r-stars" style="width: 100%; padding: 10px; background: var(--bg-color); border: 1px solid var(--neon-blue); color: white; border-radius: 5px; margin-bottom: 15px;">
+                        <option value="5">⭐⭐⭐⭐⭐ (5)</option>
+                        <option value="4">⭐⭐⭐⭐ (4)</option>
+                        <option value="3">⭐⭐⭐ (3)</option>
+                        <option value="2">⭐⭐ (2)</option>
+                        <option value="1">⭐ (1)</option>
+                    </select>
+                    <button class="btn" style="width: 100%; border-color: #f1c40f; color: #f1c40f;" onclick="addReview()">Simpan Review</button>
+                </div>
+            </div>
+
+            <div class="lists-column">
+                <div class="card" style="margin-bottom: 25px;">
+                    <h3 style="color: var(--neon-cyan); margin-bottom: 15px;">🎮 Daftar Game</h3>
+                    <div id="admin-games-list"><p>Loading...</p></div>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: #f1c40f; margin-bottom: 15px;">🗣️ Manajemen Review</h3>
+                    <div id="admin-reviews-list"><p>Loading...</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <h3 style="color: var(--neon-cyan); margin-bottom: 15px;">✏️ Edit Game</h3>
+            <input type="hidden" id="edit-id">
+            <input type="text" id="edit-name" placeholder="Nama Game">
+            <textarea id="edit-desc" placeholder="Deskripsi Singkat" rows="3"></textarea>
+            <input type="text" id="edit-thumb" placeholder="URL Gambar Thumbnail">
+            <input type="text" id="edit-link" placeholder="Link Pembelian">
+            <div style="display: flex; gap: 10px; margin-top: 15px;">
+                <button class="btn" style="flex: 1;" onclick="saveEdit()">Simpan Perubahan</button>
+                <button class="btn btn-delete" style="flex: 1;" onclick="closeEditModal()">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="edit-review-modal" class="modal">
+        <div class="modal-content" style="border-color: #f1c40f;">
+            <h3 style="color: #f1c40f; margin-bottom: 15px;">✏️ Edit Review</h3>
+            <input type="hidden" id="edit-r-id">
+            <input type="text" id="edit-r-name" placeholder="Nama Customer">
+            <input type="text" id="edit-r-username" placeholder="Username TikTok">
+            <textarea id="edit-r-text" placeholder="Isi Review" rows="3"></textarea>
+            <input type="text" id="edit-r-image" placeholder="URL Foto Profil">
+            <label style="color: var(--text-main); display:block; margin-bottom: 5px;">Skor Bintang (1-5):</label>
+            <select id="edit-r-stars" style="width: 100%; padding: 10px; background: var(--bg-color); border: 1px solid var(--neon-blue); color: white; border-radius: 5px; margin-bottom: 15px;">
+                <option value="5">⭐⭐⭐⭐⭐ (5)</option>
+                <option value="4">⭐⭐⭐⭐ (4)</option>
+                <option value="3">⭐⭐⭐ (3)</option>
+                <option value="2">⭐⭐ (2)</option>
+                <option value="1">⭐ (1)</option>
+            </select>
+            <div style="display: flex; gap: 10px; margin-top: 15px;">
+                <button class="btn" style="flex: 1; border-color: #f1c40f; color: #f1c40f;" onclick="saveEditReview()">Simpan Perubahan</button>
+                <button class="btn btn-delete" style="flex: 1;" onclick="closeEditReviewModal()">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/admin.js"></script>
+</body>
+</html>

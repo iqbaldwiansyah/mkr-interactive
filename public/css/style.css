@@ -1,0 +1,465 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap');
+
+:root {
+    --bg-color: #0b0c10;
+    --surface-color: #1f2833;
+    --neon-cyan: #66fcf1;
+    --neon-blue: #45a29e;
+    --text-main: #c5c6c7;
+    --text-light: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- Navbar Fix --- */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(11, 12, 16, 0.9);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Menjaga jarak */
+    padding: 15px 50px;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(102, 252, 241, 0.2);
+}
+
+.logo { 
+    flex: 1; /* Porsi kiri */
+    display: flex; 
+    justify-content: flex-start; 
+}
+.logo img { 
+    height: 60px; /* Diperbesar dari 40px ke 60px. Bisa dinaikkan ke 70px jika masih kurang */
+    object-fit: contain; /* Memastikan logo 1024x1024 kamu proporsional */
+    cursor: pointer; 
+    transition: 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05); /* Sedikit membesar saat disentuh */
+    filter: drop-shadow(0 0 10px rgba(102, 252, 241, 0.5)); /* Efek glow neon */
+}
+
+/* --- Tombol Discord Premium --- */
+.discord-icon {
+    background: #5865F2; /* Warna khas Blurple Discord */
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 25px; /* Bentuk pill/kapsul agar terlihat modern */
+    text-decoration: none;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Jarak antara logo SVG dan teks */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.discord-icon:hover {
+    background: #4752C4; /* Warna agak gelap saat dihover */
+    box-shadow: 0 0 20px rgba(88, 101, 242, 0.6); /* Efek glow Blurple */
+    transform: translateY(-2px);
+}
+
+.nav-links { 
+    flex: 2; /* Porsi tengah (lebih besar agar menu leluasa) */
+    display: flex; 
+    justify-content: center; 
+}
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.nav-links a:hover {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.nav-right { 
+    flex: 1; /* Porsi kanan */
+    display: flex; 
+    justify-content: flex-end; 
+    align-items: center; 
+    gap: 15px; 
+}
+/* Style tombol Discord dan Dropdown bahasa tetap sama seperti sebelumnya */
+/* Main Container */
+.container { padding: 100px 50px 50px; min-height: 80vh; }
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 100px 0;
+    background: radial-gradient(circle at center, #1f2833 0%, #0b0c10 100%);
+}
+.hero h1 {
+    font-size: 3.5rem;
+    color: var(--text-light);
+    text-shadow: 0 0 20px var(--neon-cyan);
+    margin-bottom: 20px;
+}
+
+/* Grid & Cards */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+.card {
+    background: var(--surface-color);
+    border: 1px solid rgba(102, 252, 241, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 20px rgba(102, 252, 241, 0.4);
+}
+.card img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+    cursor: pointer;
+    margin-top: 15px;
+}
+.btn:hover {
+    background: var(--neon-cyan);
+    color: var(--bg-color);
+    box-shadow: 0 0 15px var(--neon-cyan);
+}
+
+/* Footer & Logos */
+footer {
+    text-align: center;
+    padding: 50px 20px;
+    border-top: 1px solid rgba(102, 252, 241, 0.2);
+    background: radial-gradient(circle at bottom, #1f2833 0%, #0b0c10 100%);
+}
+
+footer p {
+    color: var(--neon-cyan);
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-top: 30px;
+    margin-bottom: 20px; /* Jarak yang lebih lega */
+    font-size: 1.1rem;
+}
+
+/* Flexbox container agar logo rapi berjejer dan di tengah */
+.partner-logos, 
+.supported-logos {
+    display: flex;
+    flex-wrap: wrap; /* Jika logo banyak, akan otomatis turun ke baris baru */
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Jarak antar logo */
+}
+
+/* Aturan dinamis untuk gambar logo */
+.partner-logos img,
+.supported-logos img {
+    max-height: 50px; /* Logo 1:1 tidak akan lebih tinggi dari ini */
+    max-width: 160px; /* Logo memanjang tidak akan lebih lebar dari ini */
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Memastikan logo utuh, tidak terpotong/gepeng */
+    filter: grayscale(100%) opacity(0.6);
+    transition: all 0.4s ease;
+}
+
+.partner-logos img:hover,
+.supported-logos img:hover {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.1);
+}
+
+/* Admin Styles */
+.admin-container { max-width: 800px; margin: 100px auto; }
+input, textarea {
+    width: 100%; padding: 10px; margin-bottom: 15px;
+    background: var(--bg-color); border: 1px solid var(--neon-blue);
+    color: var(--text-light); border-radius: 5px;
+}
+
+/* --- Language Selector --- */
+
+.lang-menu {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 20px; /* Jembatan tak terlihat agar hover tidak putus */
+    margin-bottom: -20px;
+}
+
+.lang-btn {
+    background: rgba(31, 40, 51, 0.8);
+    color: var(--text-light);
+    border: 1px solid rgba(102, 252, 241, 0.3);
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.lang-btn img {
+    width: 20px;
+    border-radius: 2px;
+}
+
+.lang-btn:hover {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 10px rgba(102, 252, 241, 0.2);
+}
+
+.lang-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%; /* Ubah dari 120% jadi 100% agar menempel */
+    background: var(--surface-color);
+    min-width: 170px;
+    border: 1px solid var(--neon-cyan);
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+    z-index: 1001;
+    overflow: hidden;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.lang-content a {
+    color: var(--text-main);
+    padding: 12px 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    transition: 0.2s;
+    border-bottom: 1px solid rgba(102, 252, 241, 0.1);
+}
+
+.lang-content a:last-child {
+    border-bottom: none;
+}
+
+.lang-content a img {
+    width: 20px;
+    border-radius: 2px;
+}
+
+.lang-content a:hover {
+    background: rgba(102, 252, 241, 0.1);
+    color: var(--neon-cyan);
+    padding-left: 25px; /* Animasi geser teks sedikit saat di-hover */
+}
+
+/* Memunculkan dropdown saat di-hover */
+.lang-menu:hover .lang-content {
+    display: block;
+}
+
+/* =========================================
+   📱 MOBILE RESPONSIVE (MAX-WIDTH: 768px)
+========================================= */
+@media (max-width: 768px) {
+    /* 1. Navbar menjadi tumpuk ke bawah (Stack) */
+    nav {
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+    
+    .logo {
+        justify-content: center;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .nav-links a {
+        margin: 0 10px;
+        font-size: 1rem;
+    }
+    
+    .nav-right {
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* 2. Sesuaikan jarak atas karena Navbar di HP lebih tinggi */
+    .container {
+        padding: 200px 20px 50px; /* Padding atas dinaikkan agar konten tidak tertutup navbar */
+    }
+    
+    .hero {
+        padding: 160px 20px 60px;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem; /* Ukuran teks diperkecil untuk layar HP */
+    }
+
+    /* 3. Grid Game Card (Penuhi layar HP) */
+    .grid {
+        grid-template-columns: 1fr; /* 1 kolom penuh di HP */
+        gap: 20px;
+    }
+
+    /* 4. Merapikan Step Cards (Halaman How To Buy) */
+    .step-card {
+        flex-direction: column; /* Angka dan Teks ditumpuk */
+        text-align: center;
+        padding: 25px 15px;
+    }
+    
+    /* Pindahkan garis neon ke atas untuk tampilan HP */
+    .step-card::before {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+    }
+    
+    .step-card:hover {
+        transform: translateY(-10px); /* Hover ke atas, bukan ke samping */
+    }
+    
+    .step-number {
+        margin-right: 0;
+        margin-bottom: 15px;
+        font-size: 3rem;
+    }
+    
+    /* 5. Footer Logos */
+    .partner-logos, 
+    .supported-logos {
+        gap: 20px;
+    }
+    
+    .partner-logos img,
+    .supported-logos img {
+        max-height: 40px; /* Sedikit dikecilkan untuk layar HP */
+        max-width: 120px;
+    }
+}
+
+/* =========================================
+   ⭐ CUSTOMER REVIEWS SECTION
+========================================= */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.review-card {
+    background: rgba(31, 40, 51, 0.6);
+    border: 1px solid rgba(102, 252, 241, 0.1);
+    border-radius: 12px;
+    padding: 25px;
+    transition: 0.4s;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.review-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: #f1c40f; 
+    box-shadow: 0 10px 25px rgba(241, 196, 15, 0.15);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.review-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--neon-cyan);
+    object-fit: cover;
+}
+
+.review-info h4 {
+    color: var(--text-light);
+    font-size: 1.2rem;
+    margin-bottom: 2px;
+}
+
+/* Style Username TikTok */
+.review-tiktok {
+    font-size: 0.9rem;
+    color: #ff0050; /* Warna pink khas TikTok */
+    text-shadow: 0 0 5px rgba(255, 0, 80, 0.4);
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Style Bintang Neon Gold */
+.star-rating {
+    color: #f1c40f; 
+    text-shadow: 0 0 10px #f1c40f; 
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+.review-text {
+    color: var(--text-main);
+    font-size: 1rem;
+    line-height: 1.6;
+    font-style: italic;
+    border-left: 3px solid var(--neon-cyan);
+    padding-left: 15px;
+    margin-top: 10px;
+}

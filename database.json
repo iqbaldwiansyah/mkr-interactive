@@ -1,0 +1,67 @@
+{
+  "games": [
+    {
+      "id": 1,
+      "name": "Mario Interactive",
+      "desc": "Biarkan penonton TikTok-mu mengontrol dan membuat chaos di game Mario favoritmu secara real-time!",
+      "thumb": "https://www.chromethemer.com/wallpapers/chromebook-wallpapers/images/960/super-mario-bros-chromebook-wallpaper.jpg",
+      "link": "https://discord.com/invite/TmYfuYwHCu"
+    },
+    {
+      "id": 2,
+      "name": "PVZ Livestream Mod",
+      "desc": "Penonton bisa menanam zombie atau tanaman menggunakan gift dan komentar.",
+      "thumb": "https://via.placeholder.com/300x200/1a1a2e/ff007f?text=PVZ+TikTok",
+      "link": "https://discord.com/invite/TmYfuYwHCu"
+    },
+    {
+      "id": 1773076115105,
+      "name": "NFS Most Wanted",
+      "desc": "Buat Balapanmu semakin kacau.",
+      "thumb": "https://media.discordapp.net/attachments/1453560027452543109/1471607616907120782/Interactive_Most_Wanted.png?ex=69afd9a5&is=69ae8825&hm=a37b623f86764cc710cca68061c82d7e944b36bcb059d1bfa3bbc3bd3c03b7dc&=&format=webp&quality=lossless&width=981&height=552",
+      "link": "https://discord.com/invite/TmYfuYwHCu"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1773093683198,
+      "name": "Fadeli Surya",
+      "username": "fadelisurya",
+      "text": "Mantap Kali!!",
+      "image": "https://ui-avatars.com/api/?name=Fadeli Surya&background=random",
+      "stars": 5
+    },
+    {
+      "id": 1,
+      "name": "RizkyGaming",
+      "username": "@rizky_live",
+      "text": "Script-nya gampang di-setup! Live TikTok saya langsung ramai gift, parah chaos-nya!",
+      "image": "https://i.pravatar.cc/150?u=rizky",
+      "stars": 5
+    },
+    {
+      "id": 2,
+      "name": "Siska_VTuber",
+      "username": "@siska_kawaii",
+      "text": "Penonton suka banget interaksi lewat NFS Most Wanted. Recomended buat streamer!",
+      "image": "https://i.pravatar.cc/150?u=siska",
+      "stars": 4
+    }
+  ],
+  "poweredBy": [
+    {
+      "id": 1,
+      "name": "Node.js",
+      "logo": "https://nodejs.org/static/images/logo.svg",
+      "link": "https://nodejs.org/"
+    }
+  ],
+  "supportedBy": [
+    {
+      "id": 1,
+      "name": "Bakka Sub",
+      "logo": "/images/FANSUB_NO.1.png",
+      "link": "https://nodejs.org/"
+    }
+  ]
+}
